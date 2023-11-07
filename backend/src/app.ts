@@ -4,7 +4,7 @@ import cors from 'cors';
 import filesRouter from './routes/files.routes';
 
 const app = express();
-const port = 3000;
+const port = process.env.BASE_URL || 3000;
 
 app.use(cors());
 app.use(bodyParser.json());
