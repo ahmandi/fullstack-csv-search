@@ -2,6 +2,7 @@ import './styles.css';
 
 import { useState } from 'react';
 import { DataItem } from 'interfaces/interface';
+import { BASE_URL } from 'api';
 import ErrorHandling from 'components/ErrorHandling';
 
 interface SearchBarProps {
@@ -28,9 +29,7 @@ function SearchBar({ data, onSearch }: SearchBarProps) {
 		onSearch(filteredData);
 
 		try {
-			const response = await fetch(
-				`http://localhost:3000/api/users?q=${searchTextLower}`
-			);
+			const response = await fetch(`${BASE_URL}/api/users?q=${searchTextLower}`);
 			if (response.ok) {
 				const result = await response.json();
 				onSearch(result.data);

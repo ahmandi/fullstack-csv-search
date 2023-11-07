@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import parseCSV from 'utils/csv-parser';
 import { uploadCSV } from 'api';
 import ErrorHandling from 'components/ErrorHandling';
-import './styles.css';
 import { DataItem } from 'interfaces/interface';
+import './styles.css';
 
 interface FileUploadProps {
 	onUpload: (data: DataItem[]) => void;

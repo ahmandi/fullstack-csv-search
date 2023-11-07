@@ -1,14 +1,8 @@
 import './styles.css';
-
-interface CardData {
-	name: string;
-	city: string;
-	country: string;
-	favorite_sport: string;
-}
+import { DataItem } from 'interfaces/interface';
 
 interface CardDisplayProps {
-	data: CardData[];
+	data: DataItem[];
 }
 
 function CardDisplay({ data }: CardDisplayProps) {
