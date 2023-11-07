@@ -39,9 +39,7 @@ router.post(
 				const parsedData = csvParser(targetPath);
 				uploadedData.length = 0;
 				Array.prototype.push.apply(uploadedData, await parsedData);
-				res
-					.status(200)
-					.json({ message: 'The file was uploaded and parsed successfully' });
+				res.status(200).json({ message: 'The file was uploaded successfully' });
 			} catch (error) {
 				res.status(500).json({ message: 'Error while parsing the file' });
 			}
