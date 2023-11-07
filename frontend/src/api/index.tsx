@@ -1,4 +1,5 @@
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL =
+	process.env.REACT_APP_BASE_URL || 'http://localhost:3000';
 
 export const uploadCSV = async (file: File) => {
 	const formData = new FormData();
