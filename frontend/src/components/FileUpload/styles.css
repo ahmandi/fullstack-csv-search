@@ -1,0 +1,52 @@
+.d-flex {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+	flex-direction: column;
+}
+
+input[type='file']::file-selector-button {
+	padding: 0.625rem 1.25rem;
+
+	font: 16px 'Roboto', sans-serif;
+
+	cursor: pointer;
+
+	border-radius: 2rem;
+	border: 0;
+
+	background: #307347;
+
+	color: white;
+
+	box-shadow: 3px 3px 4px 0px rgb(0 0 0 / 12%);
+
+	transition: background-color 0.3s, color 0.3s;
+}
+
+input[type='file']::file-selector-button:hover {
+	background-color: #8abc73;
+	color: #ffffff;
+}
+
+.custom-file-input {
+	display: inline-block;
+
+	width: 20rem;
+
+	padding: 0.625rem 0;
+
+	font-size: 1rem;
+
+	font-family: inherit;
+
+	border: none;
+	border-radius: 0.313rem;
+}
+
+@media (max-width: 768px) {
+	.mobile-flex {
+		display: flex;
+		flex-direction: column;
+	}
+}

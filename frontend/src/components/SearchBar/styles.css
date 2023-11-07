@@ -1,0 +1,38 @@
+.search-bar {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	gap: 1rem;
+}
+
+input[type='text'] {
+	background-color: #f3efef;
+	color: #5d5959;
+	background: linear-gradient rgb(#91c879, #a49a48, #549270);
+
+	border: 1px solid #e2d8d8;
+	border-radius: 0.313rem;
+
+	padding: 0.625rem;
+	margin-right: 0.625rem;
+}
+
+button {
+	background-color: #7ea8b2;
+	color: #f3efef;
+
+	font-size: 1em !important;
+
+	border: none;
+	border-radius: 0.313rem;
+
+	padding: 0.625rem 1.25rem;
+
+	transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+	background-color: #8abc73;
+	color: #ffffff;
+}

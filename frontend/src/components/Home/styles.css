@@ -1,0 +1,47 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	height: 100vh;
+}
+
+.title {
+	font-weight: 600;
+	font-size: 2.5em;
+
+	background: #307347;
+	-webkit-background-clip: text;
+	color: transparent;
+}
+
+.first-half {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	margin: auto;
+
+	gap: 2rem;
+}
+
+.card-display-container {
+	display: flex;
+	margin-top: auto;
+	width: 100%;
+	height: 50vh;
+	justify-content: center;
+	align-items: flex-start;
+
+	background-image: url(../../assets/dark_waves.jpg);
+	background-size: cover;
+
+	padding: 1rem;
+}
+
+@media (max-width: 425px) {
+	.title {
+		text-align: center;
+	}
+}

@@ -1,0 +1,25 @@
+.footer-container {
+	display: flex;
+
+	background-image: url(../../assets/logo_color.png);
+
+	height: 5rem;
+	width: 100%;
+
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: contain;
+
+	margin: 1rem;
+	padding: 1rem 6rem;
+
+	align-items: center;
+}
+
+.logo-name {
+	font-weight: 600;
+
+	font-size: 2em;
+
+	color: #307347;
+}
