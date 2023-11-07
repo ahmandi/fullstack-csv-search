@@ -9,6 +9,8 @@ PartnersData Loader is a web application with a backend that complements the fro
 - [Usage](#usage)
 - [Testing](#testing)
 
+### Getting Started
+
 To get started with PartnersData Loader backend, follow these steps:
 
 Clone the GitHub repository to your local machine:
