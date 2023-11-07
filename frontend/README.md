@@ -7,6 +7,7 @@ PartnersData Loader is a web application that allows users to upload and search 
 - [Getting Started](#getting-started)
 - [Features](#features)
 - [Usage](#usage)
+- [Testing](#testing)
 
 ## Getting Started
 
@@ -58,3 +59,9 @@ The displayed cards will update to show only matching results.
 Each card contains information from a single row of the CSV file.
 
 **Error Handling**: If an error occurs, an error message will be displayed for clear communication.
+
+## Testing
+
+PartnersData Loader frontend includes automated tests to ensure its functionality and reliability. To run the tests, use the following command in the "frontend" directory:
+
+### `npm run test`
