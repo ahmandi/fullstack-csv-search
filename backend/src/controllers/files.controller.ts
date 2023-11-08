@@ -1,13 +1,10 @@
-type DataItem = {
-	name: string;
-	city: string;
-	country: string;
-	favorite_sport: string;
-};
+export interface CSVRow {
+	[key: string]: string;
+}
 
-const uploadedData: DataItem[] = [];
+const uploadedData: CSVRow[] = [];
 
-const searchData = (searchQuery: string, data: DataItem[]): DataItem[] => {
+const searchData = (searchQuery: string, data: CSVRow[]): CSVRow[] => {
 	if (!searchQuery) {
 		return data;
 	}
@@ -17,12 +14,9 @@ const searchData = (searchQuery: string, data: DataItem[]): DataItem[] => {
 	}
 
 	const filteredData = data.filter((item) => {
-		return (
-			item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			item.city.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			item.country.toLowerCase().includes(searchQuery.toLowerCase()) ||
-			item.favorite_sport.toLowerCase().includes(searchQuery.toLowerCase())
-		);
+		return Object.values(item).some((value) => {
+			return value.toLowerCase().includes(searchQuery);
+		});
 	});
 
 	return filteredData;
