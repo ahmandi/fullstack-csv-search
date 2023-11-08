@@ -1,13 +1,14 @@
-import { DataItem } from 'interfaces/interface';
+import { CSVRow } from 'interfaces/interface';
 
-const parseCSV = async (file: File): Promise<DataItem[]> => {
-	return new Promise<DataItem[]>((resolve, reject) => {
+const parseCSV = async (file: File): Promise<CSVRow[]> => {
+	return new Promise<CSVRow[]>((resolve, reject) => {
 		const reader = new FileReader();
 
 		reader.onload = (event) => {
-            if (event.target && typeof event.target.result === 'string') {
-              const fileContent = event.target.result;
+			if (event.target && typeof event.target.result === 'string') {
+				const fileContent = event.target.result;
 				const lines = fileContent.split('\n');
+				const header = lines[0].split(',').map((value) => value.trim());
 
 				const data = lines.slice(1).map((line) => {
 					const values = line.split(',').map((value) => value.trim());
@@ -16,31 +17,29 @@ const parseCSV = async (file: File): Promise<DataItem[]> => {
 						return null;
 					}
 
-					const item: DataItem = {
-						name: values[0] || '',
-						city: values[1] || '',
-						country: values[2] || '',
-						favorite_sport: values[3] || '',
-					};
+					const item: CSVRow = {};
+
+					header.forEach((columnName, index) => {
+						item[columnName] = values[index] || '';
+					});
 
 					return item;
 				});
 
-				const filteredData = data.filter((item) => item !== null) as DataItem[];
+				const filteredData = data.filter((item) => item !== null) as CSVRow[];
 
-                resolve(filteredData);
-
+				resolve(filteredData);
 			} else {
-                reject(new Error('Failed to read the file content.'));
-              }
-            };
-        
-            reader.onerror = (event) => {
-              reject(new Error('Failed to read the file.'));
-            };
+				reject(new Error('Failed to read the file content.'));
+			}
+		};
 
-            const blob = new Blob([file]);
-            reader.readAsText(blob);
+		reader.onerror = (event) => {
+			reject(new Error('Failed to read the file.'));
+		};
+
+		const blob = new Blob([file]);
+		reader.readAsText(blob);
 	});
 };
 

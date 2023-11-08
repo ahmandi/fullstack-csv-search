@@ -1,6 +1,3 @@
-export interface DataItem {
-	name: string;
-	city: string;
-	country: string;
-	favorite_sport: string;
+export interface CSVRow {
+	[key: string]: string;
 }

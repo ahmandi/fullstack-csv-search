@@ -1,19 +1,20 @@
 import './styles.css';
-import { DataItem } from 'interfaces/interface';
+import { CSVRow } from 'interfaces/interface';
 
 interface CardDisplayProps {
-	data: DataItem[];
+	data: CSVRow[];
 }
 
 function CardDisplay({ data }: CardDisplayProps) {
 	return (
 		<div className="card-container">
-			{data.map((item, index) => (
+			{data.map((row, index) => (
 				<div className="grid__item" data-testid="card" key={index}>
-					<div>Name: {item.name}</div>
-					<div>City: {item.city}</div>
-					<div>Country: {item.country}</div>
-					<div>Favorite Sport: {item.favorite_sport}</div>
+					{Object.keys(row).map((header) => (
+						<div key={header}>
+							{header}: {row[header]}
+						</div>
+					))}
 				</div>
 			))}
 		</div>

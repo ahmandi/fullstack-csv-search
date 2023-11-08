@@ -2,20 +2,20 @@ import { useState } from 'react';
 import SearchBar from 'components/SearchBar';
 import FileUpload from 'components/FileUpload';
 import CardDisplay from 'components/CardDisplay';
-import { DataItem } from 'interfaces/interface';
+import { CSVRow } from 'interfaces/interface';
 import './styles.css';
 import Footer from 'components/Footer/Footer';
 
 function Home() {
-	const [uploadedData, setUploadedData] = useState<DataItem[]>([]);
-	const [filteredData, setFilteredData] = useState<DataItem[]>(uploadedData);
+	const [uploadedData, setUploadedData] = useState<CSVRow[]>([]);
+	const [filteredData, setFilteredData] = useState<CSVRow[]>(uploadedData);
 
-	const handleDataUpload = (data: DataItem[]) => {
+	const handleDataUpload = (data: CSVRow[]) => {
 		setUploadedData(data);
 		setFilteredData(data);
 	};
 
-	const handleSearch = (filteredData: DataItem[]) => {
+	const handleSearch = (filteredData: CSVRow[]) => {
 		setFilteredData(filteredData);
 	};
 

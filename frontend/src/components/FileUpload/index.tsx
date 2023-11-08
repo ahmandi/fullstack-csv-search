@@ -2,11 +2,11 @@ import { useState } from 'react';
 import parseCSV from 'utils/csv-parser';
 import { uploadCSV } from 'api';
 import ErrorHandling from 'components/ErrorHandling';
-import { DataItem } from 'interfaces/interface';
+import { CSVRow } from 'interfaces/interface';
 import './styles.css';
 
 interface FileUploadProps {
-	onUpload: (data: DataItem[]) => void;
+	onUpload: (data: CSVRow[]) => void;
 }
 
 function FileUpload({ onUpload }: FileUploadProps) {

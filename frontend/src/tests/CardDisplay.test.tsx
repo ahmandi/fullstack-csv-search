@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render, screen } from '@testing-library/react';
 import CardDisplay from 'components/CardDisplay';
-import { DataItem } from 'interfaces/interface';
+import { CSVRow } from 'interfaces/interface';
 
-const data: DataItem[] = [
+const data: CSVRow[] = [
 	{
 		name: 'John Doe',
 		city: 'New York',
@@ -18,7 +18,7 @@ const data: DataItem[] = [
 	},
 ];
 
-const setupCardDisplay = (data: DataItem[]) => {
+const setupCardDisplay = (data: CSVRow[]) => {
 	render(<CardDisplay data={data} />);
 
 	const cards = screen.getAllByTestId('card');

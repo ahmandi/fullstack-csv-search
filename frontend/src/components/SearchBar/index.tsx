@@ -1,13 +1,13 @@
 import './styles.css';
 
 import { useState } from 'react';
-import { DataItem } from 'interfaces/interface';
+import { CSVRow } from 'interfaces/interface';
 import { BASE_URL } from 'api';
 import ErrorHandling from 'components/ErrorHandling';
 
 interface SearchBarProps {
-	data: DataItem[];
-	onSearch: (filteredData: DataItem[]) => void;
+	data: CSVRow[];
+	onSearch: (filteredData: CSVRow[]) => void;
 }
 
 function SearchBar({ data, onSearch }: SearchBarProps) {
@@ -18,12 +18,9 @@ function SearchBar({ data, onSearch }: SearchBarProps) {
 		const searchTextLower = searchText.toLowerCase().trim();
 
 		const filteredData = data.filter((item) => {
-			return (
-				item.name.toLowerCase().includes(searchTextLower) ||
-				item.city.toLowerCase().includes(searchTextLower) ||
-				item.country.toLowerCase().includes(searchTextLower) ||
-				item.favorite_sport.toLowerCase().includes(searchTextLower)
-			);
+			return Object.values(item).some((value) => {
+				return value.toLowerCase().includes(searchTextLower);
+			});
 		});
 
 		onSearch(filteredData);
