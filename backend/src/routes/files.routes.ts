@@ -22,7 +22,9 @@ router.post(
 	'/api/files',
 	upload.single('file'),
 	async (req: Request, res: Response) => {
+		console.log('Req:', req);
 		if (!req.file) {
+			console.log('Res for !req.file:', res);
 			return res.status(500).json({ message: 'No file uploaded' });
 		}
 
