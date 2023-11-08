@@ -32,7 +32,7 @@ router.post(
 
 		const uploadedFile = req.file;
 
-		console.log(uploadedFile)
+		console.log(uploadedFile);
 
 		const targetPath = `uploads/${uploadedFile.originalname}`;
 
