@@ -6,7 +6,7 @@ import filesRouter from './routes/files.routes';
 const app = express();
 const port = 3000;
 
-app.use(cors());
+app.use(cors({ origin: 'https://fullstack-csv-search.vercel.app' }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
