@@ -22,8 +22,8 @@ router.post(
 	'/api/files',
 	upload.single('file'),
 	async (req: Request, res: Response) => {
-		
 		console.log('Req:', req);
+		console.log('Req:', res);
 
 		if (!req.file) {
 			console.log('Res for !req.file:', res);
