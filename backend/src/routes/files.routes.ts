@@ -32,6 +32,8 @@ router.post(
 
 		const uploadedFile = req.file;
 
+		console.log(uploadedFile)
+
 		const targetPath = `uploads/${uploadedFile.originalname}`;
 
 		fs.rename(uploadedFile.path, targetPath, async (err) => {
